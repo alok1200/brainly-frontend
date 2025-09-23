@@ -4,7 +4,8 @@ import { Button } from "./components/Button";
 function App() {
   return (
     <>
-      <Button />
+      <Button variant="primary" text="adding" />
+      <Button variant="secondary" text="editing" />
     </>
   );
 }
