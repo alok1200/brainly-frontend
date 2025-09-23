@@ -9,15 +9,35 @@ export interface ButtonProps {
   onClick: () => void;
 }
 
+const defaultStyles = "rounded-md ";
+
+const sizeStyles = {
+  small: "py-1, px-2",
+  medium: "py-2, px-4",
+  large: "py-4, px-6",
+};
+
 const variantStyles = {
   primary: "bg-purple-600 text-white",
-  secondary: "bg-purple-400 text-purple-600",
+  secondary: "bg-purple-300 text-purple-600",
 };
 
 export const Button = (props: ButtonProps) => {
-  return <button className={variantStyles[props.variant]}>{props.text}</button>;
+  return (
+    <button
+      onClick={props.onClick}
+      className={`${variantStyles[props.variant]} ${defaultStyles} ${
+        sizeStyles[props.size]
+      }`}
+    >
+      {props.startIcon}
+      {props.text}
+      {props.endIcon}
+    </button>
+  );
 };
 
+// Example usage
 <Button variant="primary" size="medium" onClick={() => {}} text="abcd" />;
 
 // import type { ReactElement } from "react";
